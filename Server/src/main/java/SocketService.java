@@ -6,8 +6,9 @@ import main.java.logger.Logger;
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Deque;
 
 public class SocketService implements Closeable {
 
@@ -15,11 +16,15 @@ public class SocketService implements Closeable {
 
     private final Socket socket;
 
-    public SocketService(Socket socket) {
+    private SocketService(Socket socket) {
         this.socket = socket;
     }
 
-    public List<String> readRequest() {
+    public static SocketService createSocketService(Socket socket) {
+        return new SocketService(socket);
+    }
+
+    public Deque<String> readRequest() {
         try {
             BufferedReader input = new BufferedReader(
                     new InputStreamReader(
@@ -27,7 +32,8 @@ public class SocketService implements Closeable {
 
             while (!input.ready());
 
-            List<String> request = new ArrayList<>();
+            Deque<String> request = new ArrayDeque<>();
+//            Deque<String> request = new ArrayList<>();
             while (input.ready()) {
                 String line = input.readLine();
                 logger.info(line);
