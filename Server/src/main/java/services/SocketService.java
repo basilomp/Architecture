@@ -1,4 +1,4 @@
-package main.java;
+package main.java.services;
 
 import main.java.logger.ConsoleLogger;
 import main.java.logger.Logger;
@@ -7,7 +7,6 @@ import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Deque;
 
 public class SocketService implements Closeable {
@@ -49,7 +48,7 @@ public class SocketService implements Closeable {
         try {
             PrintWriter output = new PrintWriter(socket.getOutputStream());
             output.print(headers);
-            if ( reader != null) {
+            if (reader != null) {
                 reader.transferTo(output);
             }
             output.flush();
