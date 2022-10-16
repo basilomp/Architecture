@@ -8,6 +8,5 @@ public class ConfigFactory {
         } else {
             return new ConfigFromFile("./../../../server.properties");
         }
-
     }
 }
