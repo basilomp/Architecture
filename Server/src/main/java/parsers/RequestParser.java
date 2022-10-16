@@ -1,4 +1,4 @@
-package main.java;
+package main.java.parsers;
 
 import main.java.domain.HttpRequest;
 
@@ -26,6 +26,12 @@ public class RequestParser {
         while (!rawRequest.isEmpty()) {
             body.append(rawRequest.pollFirst());
         }
-        return new HttpRequest(method, url, headers, body.toString());
+//        return new HttpRequest(method, url, headers, body.toString());
+        return HttpRequest.createBuilder()
+                .withMethod(method)
+                .withPath(url)
+                .withHeaders(headers)
+                .withBody(body.toString())
+                .build();
     }
 }
