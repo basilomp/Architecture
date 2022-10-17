@@ -1,4 +1,4 @@
-package main.java;
+package main.java.serializers;
 
 import main.java.domain.HttpResponse;
 

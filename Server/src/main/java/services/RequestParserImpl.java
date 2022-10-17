@@ -1,31 +1,30 @@
-package main.java;
+package main.java.services;
 
 import main.java.domain.HttpRequest;
 
 import java.util.Deque;
-import java.util.HashMap;
-import java.util.Map;
 
-public class RequestParser {
+class RequestParserImpl implements RequestParser {
 
     public HttpRequest parseRequest(Deque<String> rawRequest) {
+        HttpRequest.Builder builder = HttpRequest.createBuilder();
         String[] firstLine = rawRequest.pollFirst().split(" ");
-        String method = firstLine[0];
-        String url = firstLine[1];
+        builder.withMethod(firstLine[0]);
+        builder.withUrl(firstLine[1]);
 
-        Map<String, String> headers = new HashMap<>();
         while (!rawRequest.isEmpty()) {
             String line = rawRequest.pollFirst();
-            if(line.isBlank()) {
+            if (line.isBlank()) {
                 break;
             }
             String[] header = line.split(": ");
-            headers.put(header[0], header[1]);
+            builder.withHeader(header[0], header[1]);
         }
         StringBuilder body = new StringBuilder();
         while (!rawRequest.isEmpty()) {
             body.append(rawRequest.pollFirst());
         }
-        return new HttpRequest(method, url, headers, body.toString());
+        builder.withBody(body.toString());
+        return builder.build();
     }
 }

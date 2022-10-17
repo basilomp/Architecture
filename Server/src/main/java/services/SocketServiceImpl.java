@@ -1,4 +1,4 @@
-package main.java;
+package main.java.services;
 
 import main.java.logger.ConsoleLogger;
 import main.java.logger.Logger;
@@ -7,21 +7,16 @@ import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Deque;
 
-public class SocketService implements Closeable {
+class SocketServiceImpl implements SocketService {
 
     private static final Logger logger = new ConsoleLogger();
 
     private final Socket socket;
 
-    private SocketService(Socket socket) {
+    SocketServiceImpl(Socket socket) {
         this.socket = socket;
-    }
-
-    public static SocketService createSocketService(Socket socket) {
-        return new SocketService(socket);
     }
 
     public Deque<String> readRequest() {
@@ -45,13 +40,11 @@ public class SocketService implements Closeable {
         }
     }
 
-    public void writeResponse(String headers, Reader reader) {
+    public void writeResponse(String headers) {
+//    public void writeResponse(String headers, Reader reader) {
         try {
             PrintWriter output = new PrintWriter(socket.getOutputStream());
             output.print(headers);
-            if ( reader != null) {
-                reader.transferTo(output);
-            }
             output.flush();
         } catch (IOException ex) {
             throw new IllegalStateException(ex);
