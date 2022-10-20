@@ -1,7 +1,8 @@
-package main.java.services;
+package services;
 
-import main.java.logger.ConsoleLogger;
-import main.java.logger.Logger;
+
+import logger.ConsoleLogger;
+import logger.Logger;
 
 import java.io.*;
 import java.net.Socket;

@@ -18,6 +18,7 @@
         <module>server</module>
         <module>examples</module>
         <module>structurePatterns</module>
+        <module>rx-web-server</module>
     </modules>
 
 </project>

@@ -1,6 +1,5 @@
-package main.java.serializers;
+package serializers;
 
-import main.java.serializers.ResponseSerializer;
 
 public class ResponseSerializerFactory {
 

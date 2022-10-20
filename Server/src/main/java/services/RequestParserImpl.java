@@ -1,6 +1,7 @@
-package main.java.services;
+package services;
 
-import main.java.domain.HttpRequest;
+
+import domain.HttpRequest;
 
 import java.util.Deque;
 

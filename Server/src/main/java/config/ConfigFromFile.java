@@ -1,5 +1,7 @@
-package main.java.config;
+package config;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -11,7 +13,8 @@ class ConfigFromFile implements Config {
     public ConfigFromFile(String fileName) {
         Properties prop = new Properties();
         try {
-            prop.load(getClass().getResourceAsStream(fileName));
+//            prop.load(getClass().getResourceAsStream(fileName));
+            prop.load(new FileInputStream(fileName));
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }

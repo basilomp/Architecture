@@ -1,4 +1,4 @@
-package main.java.domain;
+package domain;
 
 public enum ResponseCode {
     OK(200, "OK"),

@@ -1,6 +1,6 @@
-package main.java.serializers;
+package serializers;
 
-import main.java.domain.HttpResponse;
+import domain.HttpResponse;
 
 public interface ResponseSerializer {
     String serialize(HttpResponse httpResponse);
