@@ -6,10 +6,12 @@ import domain.HttpRequest;
 import domain.HttpResponse;
 import domain.ResponseCode;
 import handlers.annotations.Handler;
+import handlers.annotations.MethodName;
 import serializers.ResponseSerializer;
 import services.SocketService;
 
-@Handler(order = 2)
+@Handler(order = 2, method = "PUT")
+@MethodName(name = "PUT")
 public class PutMethodHandler extends MethodHandler{
     public PutMethodHandler(String method,
                             MethodHandler next,

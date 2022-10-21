@@ -15,10 +15,27 @@
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
     <modules>
-        <module>server</module>
         <module>examples</module>
         <module>structurePatterns</module>
         <module>rx-web-server</module>
+        <module>server</module>
     </modules>
+<dependencies>
+    <!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
+    <!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
+<!--    <dependency>-->
+<!--        <groupId>org.reflections</groupId>-->
+<!--        <artifactId>reflections</artifactId>-->
+<!--        <version>0.10.2</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.slf4j/slf4j-api &ndash;&gt;-->
+<!--    <dependency>-->
+<!--        <groupId>org.slf4j</groupId>-->
+<!--        <artifactId>slf4j-api</artifactId>-->
+<!--        <version>2.0.0</version>-->
+<!--    </dependency>-->
+</dependencies>
+
 
 </project>
