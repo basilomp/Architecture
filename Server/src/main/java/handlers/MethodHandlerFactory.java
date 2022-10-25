@@ -1,13 +1,8 @@
 package handlers;
 
 import config.Config;
-import handlers.annotations.Handler;
-import handlers.annotations.MethodName;
-import org.reflections.Reflections;
 import serializers.ResponseSerializer;
 import services.SocketService;
-
-import java.util.*;
 
 public class MethodHandlerFactory {
     //TODO implement COR through annotations with the help of Reflections API

@@ -5,7 +5,6 @@ import domain.HttpRequest;
 import domain.HttpResponse;
 import domain.ResponseCode;
 import handlers.annotations.Handler;
-import handlers.annotations.MethodName;
 import serializers.ResponseSerializer;
 import services.SocketService;
 
@@ -15,7 +14,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Handler(order = 0, method = "GET")
-@MethodName(name = "GET")
 public class GetMethodHandler extends MethodHandler{
 
 

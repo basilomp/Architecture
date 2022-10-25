@@ -6,12 +6,10 @@ import domain.HttpResponse;
 import domain.ResponseCode;
 import handlers.annotations.Handler;
 
-import handlers.annotations.MethodName;
 import serializers.ResponseSerializer;
 import services.SocketService;
 
 @Handler(order = 1, method = "POST")
-@MethodName(name = "POST")
 public class PostMethodHandler extends MethodHandler{
     public PostMethodHandler(String method,
                              MethodHandler next,

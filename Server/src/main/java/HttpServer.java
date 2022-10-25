@@ -1,6 +1,6 @@
 import config.Config;
 import config.ConfigFactory;
-import handlers.MethodHandlerFactory;
+import handlers.AnnotatedHandlerFactory;
 import handlers.RequestHandler;
 import serializers.ResponseSerializer;
 import serializers.ResponseSerializerFactory;
@@ -28,7 +28,7 @@ public class HttpServer {
                 new Thread(new RequestHandler(
                         socketService,
                         RequestParserFactory.createRequestParser(),
-                        MethodHandlerFactory.create(socketService, responseSerializer, config)
+                        AnnotatedHandlerFactory.create(socketService, responseSerializer, config)
                         )).start();
             }
         } catch (IOException e) {
