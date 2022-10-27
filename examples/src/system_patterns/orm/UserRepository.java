@@ -8,11 +8,10 @@ public class UserRepository {
     private final UserMapper userMapper;
     private UnitOfWork unitOfWork;
 
-    //TODO create factories for UserMapper and UnitOfWork
     public UserRepository(Connection connection) {
         this.connection = connection;
         this.userMapper = new UserMapper(connection);
-        this.unitOfWork = new UnitOfWork(connection);
+        this.unitOfWork = new UnitOfWork(userMapper);
     }
 
     public Optional<User> findById(long id) {
@@ -24,7 +23,7 @@ public class UserRepository {
     }
 
     public void beginTransaction() {
-        this.unitOfWork = new UnitOfWork(connection);
+        this.unitOfWork = new UnitOfWork(userMapper);
     }
 
     public void update(User user) {

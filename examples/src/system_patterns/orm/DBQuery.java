@@ -11,8 +11,4 @@ public enum DBQuery {
         this.query = query;
     }
 
-//    @Override
-//    public String toString() {
-//        return query;
-//    }
 }
