@@ -1,4 +1,4 @@
-package main.java.config;
+package config;
 
 class ConfigFromCli implements Config{
 
