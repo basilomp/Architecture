@@ -1,6 +1,5 @@
 package config;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -12,9 +11,13 @@ class ConfigFromFile implements Config {
 
     public ConfigFromFile(String fileName) {
         Properties prop = new Properties();
+        FileInputStream in = null;
         try {
-//            prop.load(getClass().getResourceAsStream(fileName));
-            prop.load(new FileInputStream(fileName));
+            //Improbability Factor – может возникнуть ошибка не закрытого ресурса, т.к. реализует AutoCloseable
+            in = new FileInputStream(fileName);
+            prop.load(in);
+            in.close();
+//            prop.load(new FileInputStream(fileName));
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
