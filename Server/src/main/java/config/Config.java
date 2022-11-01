@@ -1,4 +1,4 @@
-package main.java.config;
+package config;
 
 public interface Config {
 
